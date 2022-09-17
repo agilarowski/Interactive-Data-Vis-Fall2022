@@ -6,15 +6,30 @@ body {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 1em;
   margin: 0.25em 0;
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 1em;
   margin: 0.25em 0;
 }
 
 p {
   font-size: 1em;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+}
+.fruit {
+  background-color: #A4D279;
+}
+img {
+  width: 50%;
 }
