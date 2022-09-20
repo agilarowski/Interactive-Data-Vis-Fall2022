@@ -21,3 +21,12 @@ p {
 section {
   padding: 2em 0;
 }
+button {
+  background-color: white; 
+  color: black;
+  border: 2px solid #4CAF50;
+}
+button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
