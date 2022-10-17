@@ -1,5 +1,11 @@
 ## NOTES
 
+ABOUT THE DATA SET and SCATTERPLOT:
+- BMI data set downloaded as csv from kaggle.com
+- columns: Gender (color-coded: blue for men, green for female), Height, Weight, Index (from 0 to 5, with 0 being extremly week and 5 extremly strong - this varaible is not included in chart), ID (I added the column to have a unique key to plot all the dots)
+- Y SCALE - Height, X SCALE - Weight (domain from min to max)
+- Strictly followed example in DEMO, didn't encounter problems.
+
 -----------
 INSTRUCTIONS:
 Use this markdown file to keep track of open questions/challenges from this week's assignment.
