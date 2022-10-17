@@ -1,12 +1,12 @@
 
 
 
-// CONSTANTS AND GLOBALS
+/* CONSTANTS AND GLOBALS */ 
 const margin = {top: 20, right: 30, bottom: 40, left: 90};
 const width = 800 - margin.left - margin.right;
 const height = 600 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
+/* APPENDING SVG  */
 const svg = d3.select("#container")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
