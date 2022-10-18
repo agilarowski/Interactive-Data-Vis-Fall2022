@@ -1,5 +1,5 @@
 ## NOTES
-For this assignment I used the demo code, stock overflow and github (I was trying differt things from many examples, not able to list them) and www.d3noob.org and bl.ocks.org - I was not able to make it work on the demo example and could not figure out my mistakes.
+For this assignment I used the demo code, stock overflow and github (I was trying differt things from many examples, not able to list them) and www.d3noob.org and bl.ocks.org - ended up following mostly this (https://bl.ocks.org/d3noob/09d3a1416d4c5c9da6eb1c7e63efff9d) - I was not able to make it work on the demo example and could not figure out my mistakes.
 
 
 
