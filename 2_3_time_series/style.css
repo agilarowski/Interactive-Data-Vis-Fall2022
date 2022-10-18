@@ -17,3 +17,13 @@ h3 {
 p {
   font-size: 1em;
 }
+
+.line {
+  fill: none;
+  stroke: rgb(49, 51, 52);
+  stroke-width: 2px;
+}
+
+.area {
+  fill: rgb(184, 186, 189);
+}
