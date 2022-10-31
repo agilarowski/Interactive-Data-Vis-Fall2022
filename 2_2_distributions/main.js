@@ -1,22 +1,31 @@
-//CONSTANTS AND GLOBALS */
+
+
+  /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
   margin = { top: 20, bottom: 60, left: 60, right: 40 },
   radius = 5;
 
 /* LOAD DATA */
-d3.csv('../data/Happiness.csv', d3.autoType).then(data => {
-  console.log(data)
+d3.csv('../data/Happiness_new.csv', d => {
+  return {
+    country: d.Country,
+    happiness: +d.Happiness_Score,
+    gdp: +d.Economy
+  }
+}).then(data => {
+  console.log('data :>> ' data);
+
 
   /* SCALES */
   // xscale  - linear,count
   const xScale = d3.scaleLinear()
-    .domain([d3.min(data.map(d => d.Economy (GDP per Capita))), d3.max(data.map(d => d.Economy (GDP per Capita)))])
+    .domain([d3.min(data.map(d => d.happiness)), d3.max(data.map(d => d.happiness))])
     .range([margin.left, width - margin.right])
 
     // yscale - linear,count
   const yScale = d3.scaleLinear()
-    .domain([d3.min(data.map(d => d.Happiness Score)), d3.max(data, d => d.Happiness Score)])
+    .domain([d3.min(data.map(d => d.gdp)), d3.max(data, d => d.gdp)])
     .range([height - margin.bottom, margin.top])
 
   /*const colorScale = d3.scaleOrdinal()
@@ -44,15 +53,14 @@ d3.csv('../data/Happiness.csv', d3.autoType).then(data => {
   // circles
   const dot = svg
     .selectAll("circle")
-    .data(data, d => d.Country) // second argument is the unique key for that row
+    .data(data, d => d.country) //  argument is the unique key for that row
     .join("circle")
-    .attr("cx", d => xScale(d.Economy (GDP per Capita)))
-    .attr("cy", d => yScale(d.Happiness Score))
+    .attr("cx", d => xScale(d.happiness))
+    .attr("cy", d => yScale(d.gdp))
     .attr("r", radius)
     //.attr("fill", d => colorScale(d.Gender))
 
 });
-
 
 /* CONSTANTS AND GLOBALS */
 /*const width = window.innerWidth * 0.7,
