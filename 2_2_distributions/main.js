@@ -1,5 +1,5 @@
 
-
+// PROJECT 2 BEGGINING 
   /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
@@ -7,14 +7,16 @@ const width = window.innerWidth * 0.7,
   radius = 5;
 
 /* LOAD DATA */
-d3.csv('../data/Happiness_new.csv', d => {
+d3.csv('../data/HappyScore.csv', d => {
   return {
     country: d.Country,
-    happiness: +d.Happiness_Score,
-    gdp: +d.Economy
+    region: d.Region,
+    happiness: +d.Score,
+    gdp: +d.Economy,
+    freedom: +d.Freedom
   }
 }).then(data => {
-  console.log('data :>> ' data);
+  console.log('data :>> ' , data);
 
 
   /* SCALES */
@@ -28,10 +30,11 @@ d3.csv('../data/Happiness_new.csv', d => {
     .domain([d3.min(data.map(d => d.gdp)), d3.max(data, d => d.gdp)])
     .range([height - margin.bottom, margin.top])
 
-  /*const colorScale = d3.scaleOrdinal()
-    .domain(["Male", "Female"])
-    .range(["blue", "green", "purple"])
+  const scaleR = d3.scaleSqrt()
+    .domain(d3.extent(data, d => d.freedom))
+    .range([0.1,5])
 
+  
   /* HTML ELEMENTS */
   // svg
   const svg = d3.select("#container")
@@ -44,24 +47,62 @@ d3.csv('../data/Happiness_new.csv', d => {
   svg.append("g")
   .attr("transform", `translate(0,${height - margin.bottom})`)
   .call(xAxis);
+
   
   const yAxis = d3.axisLeft(yScale)
+    //.tickSize(width - marginLeft - marginRight +10)
+    .tickPadding(2);
   svg.append("g")
     .attr("transform", `translate(${margin.left},0)`)
-    .call(yAxis);
+    .call(yAxis)
 
+  d3.select("xAxis").append("text").attr("class", "label")
+    .text("Happiness Score 2017")
+    .attr("transform", 'translate(${[width/2, hight-3]})')
+
+  
   // circles
   const dot = svg
-    .selectAll("circle")
+    .selectAll("circle.dot")
     .data(data, d => d.country) //  argument is the unique key for that row
-    .join("circle")
+    .join("circle").attr("class", "dot")
     .attr("cx", d => xScale(d.happiness))
     .attr("cy", d => yScale(d.gdp))
-    .attr("r", radius)
+    .attr("r", d => scaleR(d.freedom))
     //.attr("fill", d => colorScale(d.Gender))
 
-});
+  const color = d3.scaleOrdinal(d3.schemeDark2);
 
+  d3.selectAll(".dot")
+    .style("fill", d => color(d.region))
+
+  const legend = d3.select("dot")
+    .append("g").attr("class" , "legend")
+    .attr("transform", `translate(${[85, 50]})`)
+
+  legend.selectAll(g.item)
+    .data(d.regions)
+    .join("g")
+    .attr("class", "item")
+    .each(function(d, i) {
+      d3.select(this)
+        .append("rect")
+        .attr("y", i*10)
+        .attr("height", 8)
+        .attr("width", 20)
+        .style("fill", color(d));
+
+      d3.select(this)
+        .append("text")
+        .attr("y", i * 10)
+        .attr("x", 24)
+        .text(d)
+    })
+
+});
+// PROJECT 2 END
+
+// PROJECT 1 BEGINNING
 /* CONSTANTS AND GLOBALS */
 /*const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
@@ -115,4 +156,4 @@ d3.csv('../data/Happiness_new.csv', d => {
     .attr("r", radius)
     .attr("fill", d => colorScale(d.Gender))
 
-});
+}); */
