@@ -1,5 +1,5 @@
 
-// PROJECT 2 BEGGINING 
+// SCATTERPLOT GDP (Y-AXIS) AND HAPPINESS SCORE (X-AXIS) SIZED BY FREEDOM SCORE
   /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
@@ -30,7 +30,7 @@ d3.csv('../data/HappyScore.csv', d => {
     .domain([d3.min(data.map(d => d.gdp)), d3.max(data, d => d.gdp)])
     .range([height - margin.bottom, margin.top])
 
-  const scaleR = d3.scaleSqrt()
+  const scaleR = d3.scaleSqrt() // Adding squared root scale for dot sizing - size dependant on freedom score
     .domain(d3.extent(data, d => d.freedom))
     .range([0.1,5])
 
@@ -44,9 +44,19 @@ d3.csv('../data/HappyScore.csv', d => {
 
   // axis scales
   const xAxis = d3.axisBottom(xScale)
-  svg.append("g")
-  .attr("transform", `translate(0,${height - margin.bottom})`)
-  .call(xAxis);
+  //svg.append("g")
+  //.attr("transform", `translate(0,${height - margin.bottom})`)
+ // .call(xAxis);
+
+  const xAxisGroup = svg.append("g")
+    .attr("class", "xAxis")
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(xAxis)
+  
+  xAxisGroup.append("text")
+    .attr("class", "axis-label")
+    .attr("transform", 'translate(${width / 2}, $35')
+    .text("Happiness Score") 
 
   
   const yAxis = d3.axisLeft(yScale)
@@ -54,11 +64,7 @@ d3.csv('../data/HappyScore.csv', d => {
     .tickPadding(2);
   svg.append("g")
     .attr("transform", `translate(${margin.left},0)`)
-    .call(yAxis)
-
-  d3.select("xAxis").append("text").attr("class", "label")
-    .text("Happiness Score 2017")
-    .attr("transform", 'translate(${[width/2, hight-3]})')
+    .call(yAxis) 
 
   
   // circles
@@ -100,7 +106,7 @@ d3.csv('../data/HappyScore.csv', d => {
     })
 
 });
-// PROJECT 2 END
+// PROJECT 2 END - this is scatter plot of height and weight following demo code (no sized dots)
 
 // PROJECT 1 BEGINNING
 /* CONSTANTS AND GLOBALS */
