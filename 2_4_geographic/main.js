@@ -9,10 +9,10 @@ const width = window.innerWidth * 0.9,
  * */
 Promise.all([
   d3.json("../data/usState.json"),
-  d3.csv("../data/colleges.csv", d3.autoType),
-]).then(([geojson, universities]) => {
+  d3.csv("../data/usCities.csv", d3.autoType),
+]).then(([geojson, cities]) => {
   
-  // create an svg element in our main `d3-container` element
+  // svg element in our main `d3-container` element
   svg = d3
     .select("#container")
     .append("svg")
@@ -20,8 +20,7 @@ Promise.all([
     .attr("height", height);
 
   // SPECIFY PROJECTION
-  // a projection maps from lat/long -> x/y values
-  // so it works a lot like a scale!
+  
   const projection = d3.geoAlbersUsa()
     .fitSize([
       width-margin.left-margin.right,
@@ -40,30 +39,16 @@ Promise.all([
     .attr("fill", "transparent")
     .attr("d", path)
 
-  // draw point for CUNY graduate center
-  const gradCenterPoint =  { latitude: 40.7423, longitude: -73.9833 };
-  svg.selectAll("circle.point")
-    .data([gradCenterPoint])
-    .join("circle")
-    .attr("r", 10)
-    .attr("fill", "gold")
-    .attr("transform", d=> {
-      // use our projection to go from lat/long => x/y
-      // ref: https://github.com/d3/d3-geo#_projection
-      const [x, y] = projection([d.longitude, d.latitude])
-      return `translate(${x}, ${y})`
-    })
 
-  // draw point for all state capitals
-  svg.selectAll("circle.college")
-    .data(colleges)
+  // draw point for all cities
+  const capitalCircles = svg.selectAll("circle.capital")
+    .data(cities)
     .join("circle")
     .attr("r", 5)
-    .attr("fill", "lightsalmon")
+    .attr("fill", "red")
     .attr("transform", d=> {
-      // use our projection to go from lat/long => x/y
-      // ref: https://github.com/d3/d3-geo#_projection
-      const [x, y] = projection([d.longitude, d.latitude])
+      
+      const [x, y] = projection([d.lng, d.lat])
       return `translate(${x}, ${y})`
     })
 
