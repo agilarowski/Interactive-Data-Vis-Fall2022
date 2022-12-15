@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/topojson-client"></script>
+    <style>
+        body {
+            margin-top: 30px;
+            margin-left: 80px;
+            margin-right: 80px;
+
+        }
+        #svg_1 {
+            border: solid 1px gray;
+        }
+        .state {
+            fill: gray;
+            stroke: gray;
+            stroke-width: .5;
+        }
+
+        #tooltip_1 {
+            pointer-events: none;
+        }
+        #tooltip_1 rect {
+            fill: white;
+            fill-opacity: .7;
+            stroke: black;
+            stroke-width: .5;
+        }
+        #tooltip_1 text {
+            font-family: "Yanone Kaffeesatz", sans-serif;
+            font-size: 11px;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+
+<h1> DATA VIS | Final project </h1>
+<body>
+    <p>The map below shows state to state net migration values for each state. I used the Census American Community Survey for July 1, 
+       2019 to July 1, 2020 period. On the map, the states marked green have the most newcomers from other states, while in the staes colred
+       the populations are shrinking.
+        </p>
+        <p> You can hover over the states to see the exact number.</p>
+        <br>
+        <p><b>State-to-State net migration 2019-2020</b></p>
+
+    <div id="container"> </div>
+
+    <p> From the matrix below you can learn from which states people are moving and where.  </p>
+
+    <div id="container_1"> </div>
+
+<script>
+
+    // CREATING A MAP THAT WILL BE PLACED IN MY FIRST SVG ELEMENT
+
+    // Creating  and appending SVG
+    const w = 1200;
+    const h = 600;
+    const FILE_1 = "map.geojson";
+
+    const svg_1 = d3.select("#container").append("svg")
+            .attr("width", w).attr("height", h);
+
+    // Projection and geopath
+    const projection = d3.geoAlbersUsa();
+    const geoPath = d3.geoPath().projection(projection);
+
+    const map = {};
+
+    // Scales
+    // Using treshold - tried linear scale but it didn't look how I wanted. The states with the most migrants in and out are kind of outliers,
+    // (huge difference in value) and it caused the linear scale to move "too fast"
+    const thresholds = [-300000, -100000, -30000, 25000, 100000, 150000],
+          labels = ["Very High","High","Medium","Low","High","Very High"],
+          colors = ["#330000", "brown", "red", "lightgray", "olive", "darkgreen"];
+
+    const migScale = d3.scaleThreshold().domain(thresholds).range(colors);
+
+
+    //Bringing in the data, shapes are from geojson, thematic from CSV
+
+    Promise.all([
+         d3.json('' + FILE_1),
+         d3.csv('state_data.csv', function(row) {
+             return {
+                 population: +row.Mig_2019,
+                 house: +row.Median_house,
+                 income: +row.Median_income,
+                 code: row.Code
+             }
+         })
+    ]).then(function([shapes, thematic]) {
+            console.log(shapes);   // shape data
+            console.log(thematic); // thematic data
+
+            // save in a global context
+            map.features   = shapes.features;
+            // Matching
+            map.features.forEach(function(d) {
+                const entry = thematic.filter(t => t.code == d.id)[0];
+                if(entry) {
+                    d.properties.population = entry.population;
+                    d.properties.house = entry.house //> 
+                    d.properties.income = entry.income;
+                    d.properties.affordability = entry.house / entry.income;
+                }
+            })
+            draw();
+            drawTooltips();
+    });
+    // Creating tooltips
+    function  drawTooltips() {
+        svg_1.append("g").attr("id", "tooltip_1")
+            .style("opacity", 0)
+            .each(function(d) {
+                d3.select(this).append("rect")
+                        .attr("height", 40)
+                        .attr("width", 210)
+                        .attr("rx", 5).attr("ry", 5)
+                        .attr("x", -75).attr("y", -20)
+                d3.select(this).append("text")
+                        .attr("y", -5)
+                d3.select(this).append("text")
+                        .attr("y", 15);
+            })
+    }
+    // Showing and hidding tooltips + adding tooltip content
+    function draw() {
+        svg_1.selectAll("path.state")
+            .data(map.features)
+            .enter().append("path")
+            .attr("class","state")
+            .attr('d', geoPath)
+            .style("fill", d => migScale(d.properties.population))
+            .on("mouseenter", showTooltip)
+            .on("mouseleave", hideTooltip)
+    }
+
+    function showTooltip(d,i) {
+        const label = labels[colors.indexOf(migScale(d.properties.population))];
+
+        const tooltip_1 = d3.select("#tooltip_1")
+                .attr("transform", `translate(${[d3.event.x, d3.event.y]})`)
+                .style("opacity", 1);
+        tooltip_1.select("text:first-of-type")
+                .text(d.properties.name)
+        tooltip_1.select("text:last-child")
+                .text(`Net migration: ${d.properties.population} (${label})`)
+    }
+    function hideTooltip() {
+        d3.select("#tooltip_1").style("opacity", 0)
+    }
+
+    // CREATING HEATMAP / MATRIX
+
+    
+
+</script>
+
+<p>  </p>
+<br>
+<br>
+
+</body>
+</html>

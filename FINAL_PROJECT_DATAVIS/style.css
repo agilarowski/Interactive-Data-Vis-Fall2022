@@ -1,0 +1,44 @@
+body {
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+
+}
+
+
+.state {
+    fill: gray;
+    stroke: gray;
+    stroke-width: .5;
+}
+
+#tooltip_map {
+    pointer-events: none;
+}
+#tooltip_map rect {
+    fill: white;
+    fill-opacity: .7;
+    stroke: black;
+    stroke-width: .5;
+}
+#tooltip_map text {
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 11px;
+    text-anchor: middle;
+}
+
+text {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 11px;
+    
+}
+.faded {
+    opacity: .3;
+}
+.highlight {
+    font: bold;
+    font-size: 120%;
+}
+.highlight rect {
+    stroke-width: 1px;
+}
