@@ -1,6 +1,6 @@
 function usMap(){
 // SVG element that will contain my map 
-const width_map = 1200;
+const width_map = 1300;
 const height_map = 600;
 const FILE_map = "states.geojson";
 
