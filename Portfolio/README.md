@@ -4,4 +4,4 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 **1. MY FIRST D3.JS VIS - HORIZONTAL BARCHART**
 
-![[Horizontal Barchart](Bar_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Bar/index.html)]
+![[Horizontal Barchart](Bar/Bar_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Bar/index.html)]
