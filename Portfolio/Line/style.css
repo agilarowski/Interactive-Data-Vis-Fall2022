@@ -1,1 +1,33 @@
-
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+    padding: 1em;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin: 0.25em 0;
+  }
+  
+  h3 {
+    font-size: 2em;
+    margin: 0.25em 0;
+  }
+  
+  p {
+    font-size: 1em;
+  }
+  
+  .line {
+    fill: none;
+    stroke: rgb(137, 139, 141);
+    stroke-width: 2px;
+  }
+  
+  .area {
+    fill: rgb(215, 217, 220);
+  }
+  
+  .text {
+    size: 12px
+  }
