@@ -18,4 +18,4 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 **3. SIMPLE AREA CHART - Unemployment over time.**
 
-![Unemployment Area Time Series](Line/Line_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/2_3_time_series/index.html)
+![Unemployment Area Time Series](Area/Area_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/2_3_time_series/index.html)
