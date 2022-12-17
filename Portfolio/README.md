@@ -3,7 +3,7 @@
 This is my portfolio of few visualizations I prepared for Interactive Data Visualization course at CUNY Graduate Center.
 <br>
 
-## SIMPLE CHARTS
+## SIMPLE VISUALIZATIONS
 
 **MY FIRST D3.js VIS - HORIZONTAL BARCHART**
 
@@ -22,3 +22,7 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 **SIMPLE AREA CHART - Unemployment over time.**
 
 ![Unemployment Area Time Series](Area/Area_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Area/index.html)
+
+<br>
+
+## INTERACTIVE VISUALIZATIONS
