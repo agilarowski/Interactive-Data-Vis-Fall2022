@@ -1,14 +1,17 @@
 # DATA VIS PORTFOLIO
 
 This is my portfolio of few visualizations I prepared for Interactive Data Visualization course at CUNY Graduate Center.
+<br>
 
-**1. MY FIRST D3.js VIS - HORIZONTAL BARCHART**
+## SIMPLE CHARTS
+
+**MY FIRST D3.js VIS - HORIZONTAL BARCHART**
 
 ![Horizontal Barchart](Bar/Bar_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Bar/index.html)
 
 <br>
 
-**2. FIRST MAP - Top ranked university in each state.**
+**FIRST MAP - Top ranked university in each state.**
 
 <br>
 
@@ -16,6 +19,6 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 <br>
 
-**3. SIMPLE AREA CHART - Unemployment over time.**
+**SIMPLE AREA CHART - Unemployment over time.**
 
 ![Unemployment Area Time Series](Area/Area_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Area/index.html)
