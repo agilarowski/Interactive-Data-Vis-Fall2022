@@ -6,6 +6,8 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 ![Horizontal Barchart](Bar/Bar_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Bar/index.html)
 
-**2. FIRST MAP** Top ranked university in each state.
+
+**2. FIRST MAP - Top ranked university in each state.**
+
 
 ![US Universities Map](Map/Simple_map.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Map/index.html)
