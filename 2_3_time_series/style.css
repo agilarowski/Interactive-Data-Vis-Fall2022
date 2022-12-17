@@ -20,10 +20,10 @@ p {
 
 .line {
   fill: none;
-  stroke: rgb(49, 51, 52);
+  stroke: rgb(137, 139, 141);
   stroke-width: 2px;
 }
 
 .area {
-  fill: rgb(184, 186, 189);
+  fill: rgb(215, 217, 220);
 }
