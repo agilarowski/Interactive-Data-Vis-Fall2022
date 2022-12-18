@@ -38,5 +38,6 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 ![Net Migration Map](Migration_Map/Migration_map.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Migration_Map/index.html)
 
 <br>
-**MIGRATION MATRIX / HEATMAP** Data: US Census Bureau, State-to-State Migration Flows, 2019.
+
+**MIGRATION MATRIX** Data: US Census Bureau, State-to-State Migration Flows, 2019.
 ![Migration Matrix](Migration_Matrix/Matrix.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Migration_Matrix/index.html)
