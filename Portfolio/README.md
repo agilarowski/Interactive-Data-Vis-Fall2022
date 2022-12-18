@@ -27,10 +27,11 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 ## INTERACTIVE VISUALIZATIONS
 
-**SCATTERPLOT**
+**SCATTERPLOT** Data: United Nations, HDI 2022.
 
 ![Interactive Scatterplot](Scatterplot/Scatterplot.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Scatterplot/index.html)
+<br>
 
-**STATE NET MIGRATION MAP - US Census Bureau, State-to-State Migration Flows, 2019.
+**STATE NET MIGRATION MAP** US Census Bureau, State-to-State Migration Flows, 2019.
 
 ![Net Migration Map](Migration_Map/Migration_map.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Migration_Map/index.html)
