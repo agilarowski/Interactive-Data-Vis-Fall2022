@@ -31,6 +31,7 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 ![Interactive Scatterplot](Scatterplot/Scatterplot.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Scatterplot/index.html)
 <br>
+<br>
 
 **STATE NET MIGRATION MAP** US Census Bureau, State-to-State Migration Flows, 2019.
 
