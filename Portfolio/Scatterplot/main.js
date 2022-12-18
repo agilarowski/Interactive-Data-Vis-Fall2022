@@ -1,9 +1,9 @@
 const w = 500, h = 300, marginH = 40, marginW = 50;
-
+    // Scales
     const scaleX = d3.scaleLinear().range([marginW, w-marginW]);
     const scaleY = d3.scaleLinear().range([h-marginH, marginH]);
     const color  = d3.scaleOrdinal(d3.schemeDark2); // small number of categories, using scheme
-
+    // Axis
     const axisX = d3.axisBottom(scaleX)
             .tickSize(h - marginH*2 + 10)
             .tickPadding(4);
@@ -19,12 +19,12 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
     }
     // Loading data
     d3.csv("HDI_2022_clean.csv", function(row) {
-        if(row.Life_expectancy >0 && row.GNI_per_capita >0) {
+        if(row.Life_expectancy >0 && row.GNI_per_capita >0) { // Will be using those two in my scatter
             data.continents.add(row.Continent); // Populating continents set
             return {
                 name: row.Country,
                 continent: row.Continent,
-                hdi: +row.HDI_2022,
+                hdi: +row.HDI_2022, // tried sizing dots by HDI but it was too much - looked messy
                 life_ex: +row.Life_expectancy,
                 gni: +row.GNI_per_capita
 
@@ -126,7 +126,7 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
     }
     // Make tooltip visable when on a dot and update content
     function showInfo(d) {
-        d3.select(this).attr("r", 4); // dot gets a bit bigger
+        d3.select(this).attr("r", 4); // dot gets a bit bigger (regular radius 1.7)
         d3.select(".tooltip").attr("opacity", 1)
                 .attr("transform", `translate(${[10 + scaleX(d.life_ex), scaleY(d.gni) - 12]})`)
         // Text to be shown on tooltip
@@ -134,7 +134,7 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
         const text2 = d3.select(".tooltip .gni").text("GNI: " + format(d.gni));
         const text3 = d3.select(".tooltip .life_ex").text("Life expectancy: " + (d.life_ex));
         
-        //DOM method to find the longest tooltip text to determine tooltip size (and making it a bit wider by +5)
+        //DOM method to find the longest tooltip text and determine tooltip size (I am making it a bit wider by +5)
         const tooltipWidth = 5 + d3.max([text1.node().getComputedTextLength(),
                                      text2.node().getComputedTextLength(),
                                      text3.node().getComputedTextLength()]);
