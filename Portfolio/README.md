@@ -5,7 +5,7 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 ## SIMPLE VISUALIZATIONS
 
-**MY FIRST D3.js VIS - HORIZONTAL BARCHART**
+**MY FIRST D3.js VIS - HORIZONTAL BARCHART** Data: [The Squirrel Census](https://www.thesquirrelcensus.com)
 
 ![Horizontal Barchart](Bar/Bar_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Bar/index.html)
 
