@@ -43,3 +43,5 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 ![Migration Matrix](Migration_Matrix/Matrix.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Migration_Matrix/index.html)
 
 The last two visualizations I prepared for my final project. Here is the [FINAL PROJECT PLAN](https://github.com/agilarowski/Interactive-Data-Vis-Fall2022/blob/main/Portfolio/FinalProject.md)
+
+[REFLECTION](https://github.com/agilarowski/Interactive-Data-Vis-Fall2022/blob/main/Portfolio/Conclusion.md)
