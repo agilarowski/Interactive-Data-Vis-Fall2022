@@ -39,7 +39,7 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
         scaleX.domain(d3.extent(dataset, d => d.life_ex));
         console.log(data)
         drawAxes();
-        draw();
+        drawDots();
         drawTooltips();
     });
     // Tooltip
@@ -77,7 +77,7 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
 
     }
 
-    function draw() {
+    function drawDots() {
         d3.select("svg").selectAll("circle.dot")
                 .data(data.countries)
                 .join("circle").attr("class", "dot")
@@ -129,13 +129,13 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
         d3.select(this).attr("r", 4); // dot gets a bit bigger
         d3.select(".tooltip").attr("opacity", 1)
                 .attr("transform", `translate(${[10 + scaleX(d.life_ex), scaleY(d.gni) - 12]})`)
-
+        // Text to be shown on tooltip
         const text1 = d3.select(".tooltip .name").text(d.name);
         const text2 = d3.select(".tooltip .gni").text("GNI: " + format(d.gni));
         const text3 = d3.select(".tooltip .life_ex").text("Life expectancy: " + (d.life_ex));
         
-        //DOM method to find the longest tooltip text to determine tooltip size (and making it a bit wider by +6)
-        const tooltipWidth = 6 + d3.max([text1.node().getComputedTextLength(),
+        //DOM method to find the longest tooltip text to determine tooltip size (and making it a bit wider by +5)
+        const tooltipWidth = 5 + d3.max([text1.node().getComputedTextLength(),
                                      text2.node().getComputedTextLength(),
                                      text3.node().getComputedTextLength()]);
 
@@ -143,6 +143,6 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
     }
 
     function removeInfo(d) {
-        d3.select(this).attr("r", 1.5); // dots returns to normal size
-        d3.select(".tooltip").attr("opacity", 0)
+        d3.select(this).attr("r", 1.5); // dot returns to normal size
+        d3.select(".tooltip").attr("opacity", 0) 
     }
