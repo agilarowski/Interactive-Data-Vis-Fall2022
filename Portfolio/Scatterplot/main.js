@@ -6,10 +6,10 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
 
     const axisX = d3.axisBottom(scaleX)
             .tickSize(h - marginH*2 + 10)
-            .tickPadding(2);
+            .tickPadding(4);
     const axisY = d3.axisLeft(scaleY)
             .tickSize(w - marginW*2 + 10)
-            .tickPadding(2);
+            .tickPadding(4);
             
 
     const format = d3.format("$,.0f"); // will be used in tooltip for GNI
