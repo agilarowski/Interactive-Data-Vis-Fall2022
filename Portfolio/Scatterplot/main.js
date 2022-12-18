@@ -19,7 +19,7 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
     }
     // Loading data
     d3.csv("HDI_2022_clean.csv", function(row) {
-        if(row.life_ex >0 && row.GNI_per_capita >0) {
+        if(row.HDI_2022 >0 && row.GNI_per_capita >0) {
             data.continents.add(row.Continent); // Populating continents set
             return {
                 name: row.Country,
