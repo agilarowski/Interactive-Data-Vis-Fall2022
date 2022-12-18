@@ -51,15 +51,6 @@ Promise.all([
       const [x, y] = projection([d.longitude, d.latitude])
       return `translate(${x}, ${y})`
     })
-    .on('mouseover', function(d) {
-      d3.select('#tooltip').transition().duration(200).style('opacity', 1).text(d => d.description)
-      })
-    .on('mouseout', function() {
-          d3.select('#tooltip').style('opacity', 0)
-          })
-    .on('mousemove', function() {
-              d3.select('#tooltip').style('left', (d3.event.pageX+10) + 'px').style('top', (d3.event.pageY+10) + 'px')
-              })
-
+    
     
 });
