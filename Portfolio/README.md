@@ -40,5 +40,4 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 <br>
 
 **MIGRATION MATRIX** Data: [US Census Bureau, State-to-State Migration Flows, 2019](https://www.census.gov/data/tables/time-series/demo/geographic-mobility/state-to-state-migration.html)
-![Migration Matrix](Migration_Matrix/Matrix.png)
-[SEE IN ACTION](https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Migration_Matrix/index.html)
+![Migration Matrix](Migration_Matrix/Matrix.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Migration_Matrix/index.html)
