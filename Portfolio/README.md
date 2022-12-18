@@ -19,7 +19,7 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 <br>
 
-**SIMPLE AREA CHART - Unemployment over time.**
+**SIMPLE AREA CHART** Data: [The Balance](https://www.thebalancemoney.com/unemployment-rate-by-year-3305506)
 
 ![Unemployment Area Time Series](Area/Area_chart.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Area/index.html)
 
