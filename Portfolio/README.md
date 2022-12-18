@@ -27,7 +27,7 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 ## INTERACTIVE VISUALIZATIONS
 
-**SCATTERPLOT** Data: United Nations, HDI 2022.
+**SCATTERPLOT** Data: [Human Development Reports](https://hdr.undp.org/data-center/human-development-index#/indicies/HDI)
 
 ![Interactive Scatterplot](Scatterplot/Scatterplot.png)(https://agilarowski.github.io/Interactive-Data-Vis-Fall2022/Portfolio/Scatterplot/index.html)
 <br>
