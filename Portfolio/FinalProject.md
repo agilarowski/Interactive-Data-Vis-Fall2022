@@ -6,6 +6,8 @@ In my final project I wanted to visualize the trends in interstate migrations. S
 
 ## SKETCHES
 
-![FinalProjectPictures/RD_map.png] ![FinalProjectPictures/Gradient_map.png]
+![FinalProjectPictures/RD_map.png]
+
+![FinalProjectPictures/Gradient_map.png]
 
 
