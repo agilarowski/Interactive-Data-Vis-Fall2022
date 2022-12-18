@@ -81,7 +81,7 @@ const w = 500, h = 300, marginH = 40, marginW = 50;
         d3.select("svg").selectAll("circle.dot")
                 .data(data.countries)
                 .join("circle").attr("class", "dot")
-                .attr("r", 1.5)
+                .attr("r", 2)
                 .attr("cx", d => scaleX(d.life_ex))
                 .attr("cy", d => scaleY(d.gni))
                 .style("fill", d => color(d.continent)) // categorizing continents by color
