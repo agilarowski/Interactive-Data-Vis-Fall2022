@@ -11,7 +11,7 @@ This is my portfolio of few visualizations I prepared for Interactive Data Visua
 
 <br>
 
-**FIRST MAP - Top ranked university in each state.**
+**FIRST MAP - Top ranked university in each state.** Data: [Top Universities](https://www.topuniversities.com/university-rankings-articles/world-university-rankings/top-us-universities-state-2020)
 
 <br>
 
