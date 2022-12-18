@@ -1,0 +1,192 @@
+﻿Country,Continent,HDI_2022,Life_expectancy,GNI_per_capita
+Switzerland,Europe,0.962,84,66933
+Norway,Europe,0.961,83.2,64660
+Iceland,Europe,0.959,82.7,55782
+Hong Kong,Asia,0.952,85.5,62607
+Australia,Oceania,0.951,84.5,49238
+Denmark,Europe,0.948,81.4,60365
+Sweden,Europe,0.947,83,54489
+Ireland,Europe,0.945,82,76169
+Germany,Europe,0.942,80.6,54534
+Netherlands,Europe,0.941,81.7,55979
+Finland,Europe,0.94,82,49452
+Singapore,Asia,0.939,82.8,90919
+Belgium,Europe,0.937,81.9,52293
+New Zealand,Oceania,0.937,82.5,44057
+Canada,North America,0.936,82.7,46808
+Liechtenstein,Europe,0.935,83.3,146830
+Luxembourg,Europe,0.93,82.6,84649
+United Kingdom,Europe,0.929,80.7,45225
+Japan,Asia,0.925,84.8,42274
+Korea,Asia,0.925,83.7,44501
+United States,North America,0.921,77.2,64765
+Israel,Asia,0.919,82.3,41524
+Malta,Europe,0.918,83.8,38884
+Slovenia,Europe,0.918,80.7,39746
+Austria,Oceania,0.916,81.6,53619
+United Arab Emirates,Asia,0.911,78.7,62574
+Spain,Europe,0.905,83,38354
+France,Europe,0.903,82.5,45937
+Cyprus,Europe,0.896,81.2,38188
+Italy,Europe,0.895,82.9,42840
+Estonia,Europe,0.89,77.1,38048
+Czechia,Europe,0.889,77.7,38745
+Greece,Europe,0.887,80.1,29002
+Poland,Europe,0.876,76.5,33034
+Bahrain,Asia,0.875,78.8,39497
+Lithuania,Europe,0.875,73.7,37931
+Saudi Arabia,Asia,0.875,76.9,46112
+Portugal,Europe,0.866,81,33155
+Latvia,Europe,0.863,73.6,32803
+Andorra,Europe,0.858,80.4,51167
+Croatia,Europe,0.858,77.6,30132
+Chile,South America,0.855,78.9,24563
+Qatar,Asia,0.855,79.3,87134
+San Marino,Europe,0.853,80.9,52654
+Slovakia,Europe,0.848,74.9,30690
+Hungary,Europe,0.846,74.5,32789
+Argentina,South America,0.842,75.4,20925
+Turkey,Europe,0.838,76,31033
+Montenegro,Europe,0.832,76.3,20839
+Kuwait,Asia,0.831,78.7,52920
+Brunei Darussalam,Asia,0.829,74.6,64490
+Russian Federation,Europe,0.822,69.4,27166
+Romania,Europe,0.821,74.2,30027
+Oman,Asia,0.816,72.5,27054
+Bahamas,North America,0.812,71.6,30486
+Kazakhstan,Asia,0.811,69.4,23943
+Trinidad and Tobago,South America,0.81,73,23392
+Costa Rica,North America,0.809,77,19974
+Uruguay,South America,0.809,75.4,21269
+Belarus,Europe,0.808,72.4,18849
+Panama,North America,0.805,76.2,26957
+Malaysia,Asia,0.803,74.9,26658
+Georgia,Europe,0.802,71.7,14664
+Mauritius,Africa,0.802,73.6,22025
+Serbia,Europe,0.802,74.2,19123
+Thailand,Africa,0.8,78.7,17030
+Albania,Europe,0.796,76.5,14131
+Bulgaria,Europe,0.795,71.8,23079
+Grenada,North America,0.795,74.9,13484
+Barbados,North America,0.79,77.6,12306
+Antigua and Barbuda,North America,0.788,78.5,16792
+Seychelles,Africa,0.785,71.3,25831
+Sri Lanka,Asia,0.782,76.4,12578
+Bosnia and Herzegovina,Europe,0.78,75.3,15242
+Saint Kitts and Nevis,North America,0.777,71.7,23358
+Iran,Asia,0.774,73.9,13001
+Ukraine,Europe,0.773,71.6,13256
+North Macedonia,Europe,0.77,73.8,15918
+China,Asia,0.768,78.2,17504
+Dominican Republic,North America,0.767,72.6,17990
+Moldova,Europe,0.767,68.8,14875
+Palau,Oceania,0.767,66,13819
+Cuba,North America,0.764,73.7,7879
+Peru,South America,0.762,72.4,12246
+Armenia,Europe,0.759,72,13158
+Mexico,North America,0.758,70.2,17896
+Brazil,South America,0.754,72.8,14370
+Colombia,South America,0.752,72.8,14384
+Saint Vincent and the Grenadines,North America,0.751,69.6,11961
+Maldives,Asia,0.747,79.9,15448
+Algeria,Africa,0.745,76.4,10800
+Azerbaijan,Asia,0.745,69.4,14257
+Tonga,Oceania,0.745,71,6822
+Turkmenistan,Asia,0.745,69.3,13021
+Ecuador,South America,0.74,73.7,10312
+Mongolia,Asia,0.739,71,10588
+Egypt,Africa,0.731,70.2,11732
+Tunisia,Africa,0.731,73.8,10258
+Fiji,Oceania,0.73,67.1,9980
+Suriname,South America,0.73,70.3,12672
+Uzbekistan,Asia,0.727,70.9,7917
+Dominica,North America,0.72,72.8,11488
+Jordan,Asia,0.72,74.3,9924
+Libya,Africa,0.718,71.9,15336
+Paraguay,South America,0.717,70.3,12349
+Palestine,Asia,0.715,73.5,6583
+Saint Lucia,North America,0.715,71.1,12048
+Guyana,Africa,0.714,65.7,22465
+South Africa,Africa,0.713,62.3,12948
+Jamaica,North America,0.709,70.5,8834
+Samoa,Oceania,0.707,72.8,5308
+Gabon,Africa,0.706,65.8,13367
+Lebanon,Asia,0.706,75,9526
+Indonesia,Asia,0.705,67.6,11466
+Viet Nam,Asia,0.703,73.6,7867
+Philippines,Asia,0.699,69.3,8920
+Botswana,Africa,0.693,61.1,16198
+Bolivia,South America,0.692,63.6,8111
+Kyrgyzstan,Asia,0.692,70,4566
+Venezuela,South America,0.691,70.6,4811
+Iraq,Asia,0.686,70.4,9977
+Tajikistan,Asia,0.685,71.6,4548
+Belize,North America,0.683,70.5,6309
+Morocco,Africa,0.683,74,7303
+El Salvador,North America,0.675,70.7,8296
+Nicaragua,North America,0.667,73.8,5625
+Bhutan,Asia,0.666,71.8,9438
+Cabo Verde,Africa,0.662,74.1,6230
+Bangladesh,Asia,0.661,72.4,5472
+Tuvalu,Oceania,0.641,64.5,6351
+Marshall Islands,Oceania,0.639,65.3,4620
+India,Asia,0.633,67.2,6590
+Ghana,Africa,0.632,63.8,5745
+Micronesia,Oceania,0.628,70.7,3696
+Guatemala,North America,0.627,69.2,8723
+Kiribati,Oceania,0.624,67.4,4063
+Honduras,North America,0.621,70.1,5298
+Sao Tome and Principe,Africa,0.618,67.6,4021
+Namibia,Africa,0.615,59.3,8634
+Lao Peoples Democratic Republic,Asia,0.607,68.1,7700
+Timor Leste,Asia,0.607,67.7,4461
+Vanuatu,Oceania,0.607,70.4,3085
+Nepal,Asia,0.602,68.4,3877
+Eswatini,Africa,0.597,57.1,7679
+Equatorial Guinea,Oceania,0.596,60.6,12074
+Cambodia,Asia,0.593,69.6,4079
+Zimbabwe,Africa,0.593,59.3,3810
+Angola,Africa,0.586,61.6,5466
+Myanmar,Asia,0.585,65.7,3851
+Syrian Arab Republic,Asia,0.577,72.1,4192
+Cameroon,Africa,0.576,60.3,3621
+Kenya,Africa,0.575,61.4,4474
+Congo,Africa,0.571,63.5,2889
+Zambia,Africa,0.565,61.2,3218
+Solomon Islands,Oceania,0.564,70.3,2482
+Comoros,Africa,0.558,63.4,3142
+Papua New Guinea,Oceania,0.558,65.4,4009
+Mauritania,Africa,0.556,64.4,5075
+Cote dIvoire,Africa,0.55,58.6,5217
+Tanzania,Africa,0.549,66.2,2664
+Pakistan,Asia,0.544,66.1,4624
+Togo,Africa,0.539,61.6,2167
+Haiti,North America,0.535,63.2,2848
+Nigeria,Africa,0.535,52.7,4790
+Rwanda,Africa,0.534,66.1,2210
+Benin,Africa,0.525,59.8,3409
+Uganda,Africa,0.525,62.7,2181
+Lesotho,Africa,0.514,53.1,2700
+Malawi,Africa,0.512,62.9,1466
+Senegal,Africa,0.511,67.1,3344
+Djibouti,Africa,0.509,62.3,5025
+Sudan,Africa,0.508,65.3,3575
+Madagascar,Africa,0.501,64.5,1484
+Gambia,Africa,0.5,62.1,2172
+Ethiopia,Africa,0.498,65,2361
+Eritrea,Africa,0.492,66.5,1729
+Guinea Bissau,Africa,0.483,59.7,1908
+Liberia,Africa,0.481,60.7,1289
+Congo,Africa,0.479,59.2,1076
+Afghanistan,Asia,0.478,62,1824
+Sierra Leone,Africa,0.477,60.1,1622
+Guinea,Africa,0.465,58.9,2481
+Yemen,Asia,0.455,63.8,1314
+Burkina Faso,Africa,0.449,59.3,2118
+Mozambique,Africa,0.446,59.3,1198
+Mali,Africa,0.428,58.9,2133
+Burundi,Africa,0.426,61.7,732
+Central African Republic,Africa,0.404,53.9,966
+Niger,Africa,0.4,61.6,1240
+Chad,Africa,0.394,52.5,1364
+South Sudan,Africa,0.385,55,768
