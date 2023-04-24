@@ -42,7 +42,7 @@
     const format = d3.format(',.2f');
 
     // Loading data
-    d3.csv("Inter_State_clean.csv", function(row) {
+    d3.csv("UE_migration.csv", function(row) {
         nodes.push({node: row.Destination, total: +row.Total, code: row.Code, pop: +row.Population});
 
         const line = [];
