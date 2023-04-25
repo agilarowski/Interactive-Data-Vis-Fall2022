@@ -63,22 +63,23 @@
             .ticks(8, ',');
 
     const format = d3.format("$,.0f");
-    const formatSI = d3.format(",.3s");
+    const formatSI = d3.format(",.2%");
 
     const data = {
         continents: new Set()
     }
 
-    d3.csv("../DataBook/un_regions.csv", function(row) {
-        if(+row.HDI_2017 >0 && +row.GDP_2017 >0 && +row.Pop_2016 >0) {
+    d3.csv("Aliens_2021.csv", function(row) {
+        if(+row.HDI_2021 >0 && +row.GDP_2021 >0 && +row.Pop_2021 >0) {
             data.continents.add(row.Continent);
             return {
                 name: row.Country,
                 code: row.Code,
                 continent: row.Continent,
-                population: +row.Pop_2016,
-                hdi: +row.HDI_2017,
-                gdp: +row.GDP_2017
+                population: +row.Pop_2021,
+                hdi: +row.HDI_2021,
+                gdp: +row.GDP_2021,
+                alien: +row.Percent_alien
             }
         }
     })
@@ -87,7 +88,7 @@
         data.countries = dataset;
         scaleY.domain(d3.extent(dataset, d => d.gdp));
         scaleX.domain(d3.extent(dataset, d => d.hdi));
-        scaleR.domain(d3.extent(dataset, d => d.population));
+        scaleR.domain(d3.extent(dataset, d => d.alien));
 
         drawAxes();
         draw();
@@ -108,7 +109,7 @@
         tooltip.append("text").attr("class", "name");
         tooltip.append("text").attr("class", "hdi").attr("y", 15);
         tooltip.append("text").attr("class", "gdp").attr("y", 30);
-        tooltip.append("text").attr("class", "pop").attr("y", 45);
+        tooltip.append("text").attr("class", "alien").attr("y", 45);
     }
 
     function drawAxes() {
@@ -133,7 +134,7 @@
         d3.select("svg").selectAll("circle.dot")
                 .data(data.countries)
                 .join("circle").attr("class", "dot")
-                .attr("r", d => scaleR(d.population))
+                .attr("r", d => scaleR(d.alien))
                 .attr("cx", d => scaleX(d.hdi))
                 .attr("cy", d => scaleY(d.gdp))
                 .style("fill", d => color(d.continent))
@@ -185,7 +186,7 @@
         const text1 = d3.select(".tooltip .name").text(d.name);
         const text2 = d3.select(".tooltip .gdp").text("GDP: " + format(d.gdp));
         const text3 = d3.select(".tooltip .hdi").text("HDI: " + d.hdi);
-        const text4 = d3.select(".tooltip .pop").text("Population: " + formatSI(d.population));
+        const text4 = d3.select(".tooltip .alien").text("Foreign population: " + formatSI(d.alien));
 
         const boxWidth = 6 + d3.max([text1.node().getComputedTextLength(),
                                      text2.node().getComputedTextLength(),
@@ -201,3 +202,18 @@
 </script>
 </body>
 </html>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Learn-D3.js/7-bubble.html at master · PacktPublishing/Learn-D3.js · GitHub
