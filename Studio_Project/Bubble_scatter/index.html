@@ -69,7 +69,7 @@
         continents: new Set()
     }
 
-    d3.csv("Aliens_2021.csv", function(row) {
+    d3.csv("Aliens_2021_fix.csv", function(row) {
         if(+row.HDI_2021 >0 && +row.GDP_2021 >0 && +row.Pop_2021 >0) {
             data.continents.add(row.Continent);
             return {
