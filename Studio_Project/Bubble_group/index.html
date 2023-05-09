@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Migration2021</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <style>
         text {
@@ -34,7 +34,7 @@
     const links = [];
     const continentSet = new Set();
 
-    d3.csv('un_regions.csv', function(row) {
+    d3.csv('migration_2021.csv', function(row) {
         continentSet.add(row.Continent);
         return {node: row.Country, value: +row.Area_km2, group: row.Continent};
     }).then(function(countries) {
