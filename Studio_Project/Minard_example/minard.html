@@ -37,7 +37,9 @@
             return {
                 city: row.city,
                 coordinates: [+row.lon, +row.lat]
+                
             };
+        
         }),
         d3.csv('minard-troops.csv', function(row) {
             return {
@@ -84,6 +86,7 @@
 
 
     });
+
 
     function drawArmy(data) { console.log(data.features)
         svg.selectAll("g.army")
