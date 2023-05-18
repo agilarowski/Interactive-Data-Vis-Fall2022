@@ -1,0 +1,42 @@
+
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 20ox;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 22px;
+}
+
+.tabs {
+    overflow: hidden;
+    &>li {
+      display: inline-block;
+      vertical-align: top;
+      &>a {
+        display: inline-block;
+        text-decoration: none;
+        color: #272727;
+        padding: 10px 15px;
+        margin-right: 5px;
+        border-radius: 5px 5px 0 0;
+        background: #fff;
+        position: relative;
+        z-index: 10;
+        &.active {
+          background: #f1f1f1;
+        }
+      }
+    }
+  }
+   
+  .tab {
+    display: none;
+    margin-top: -1px;
+    position: relative;
+    z-index: 5;
+    &.active {
+      display: block;
+    }
+  }
+
