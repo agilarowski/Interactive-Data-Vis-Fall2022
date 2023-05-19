@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Line</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .dataset {
+            stroke-width: 3px;
+            fill: none;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const width  = 800;
+    const height = 400;
+    const margin = 50;
+
+    const data = d3.csv('saldo.csv').then(function(data){
+        console.log(data)
+        return {
+            year: +'year',
+            outflow: +'outflow',
+
+
+        }
+    });
+
+    
+    /* PARSING THE YEAR */
+    const parseTime = d3.timeParse("%Y");
+
+    /* X AND Y SCALES */
+    const x = d3.scaleTime().range([0, width]);
+    const y = d3.scaleLinear().range([height, 0]);
+
+    /* ADDING AREA */
+    const area = d3.area()
+    .x(function(d) { return x(d.Year); })
+    .y0(height)
+    .y1(function(d) { return y(d.Unemployment); });
+
+
+    const scaleX = d3.scaleLinear()
+            .domain(d3.extent(d3.merge(data), d => d[0]))
+            .range([margin,width - margin]);
+
+    const scaleY = d3.scaleLinear()
+            .domain(d3.extent(d3.merge(data), d => d[1]))
+            .range([height - margin,margin])
+            .nice();
+
+    const colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain([0,data.length]);
+
+    const line = d3.line()
+                   .x(d => scaleX(d[0]))
+                   .y(d => scaleY(d[1]));
+
+    const xAxis = d3.axisBottom(scaleX);
+    const yAxis = d3.axisLeft(scaleY);
+
+    const svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
+    const axes = svg.append("g").attr("class", "axes");
+
+    axes.append("g").call(xAxis)
+            .attr("transform", `translate(${[0, height - margin]})`);
+    axes.append("g").call(yAxis)
+            .attr("transform", `translate(${[margin, 0]})`);
+
+    svg.selectAll("path.dataset")
+        .data(data).join("path")
+        .attr("class", "dataset")
+        .attr("d", line)
+        .style("stroke", colorScale);
+
+
+</script>
+</body>
+</html>
