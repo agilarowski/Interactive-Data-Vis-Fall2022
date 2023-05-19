@@ -1,45 +1,19 @@
 import {panZoomSetup} from './pan-zoom.js';
 
 // These values were carefully selected to make the map fill the SVG.
-const MAP_SCALE = 123;
+const MAP_SCALE = 625;
 const SVG_WIDTH = 772;
 const SVG_HEIGHT = 500;
 
 // Create a function that a population number
 // to a shade of blue for country fills.
-const color = d3
-  .scaleThreshold()
-  .domain([
-    10000,
-    100000,
-    500000,
-    1000000,
-    5000000,
-    10000000,
-    50000000,
-    100000000,
-    500000000,
-    1500000000
-  ])
-  .range([
-    'rgb(247,251,255)',
-    'rgb(222,235,247)',
-    'rgb(198,219,239)',
-    'rgb(158,202,225)',
-    'rgb(107,174,214)',
-    'rgb(66,146,198)',
-    'rgb(33,113,181)',
-    'rgb(8,81,156)',
-    'rgb(8,48,107)',
-    'rgb(3,19,43)'
-  ]);
 
-// Create a function to format numbers with commas.
-const format = d3.format(',');
 
 const tooltip = d3.select('.tooltip');
 const tooltipCountry = tooltip.select('.country');
-const tooltipPopulation = tooltip.select('.population');
+const tooltipMigrants = tooltip.select(".migrants");
+var YEAR_SELECTED = "1966";
+var migrantsByName = null; 
 
 function hideTooltip() {
   tooltip.style('opacity', 0);
@@ -69,31 +43,57 @@ async function load(svg, path) {
   });
   
 
-  debugger; 
+  // debugger; 
   // Add the population of each country to its data object.
-  const migrantsByName = {};
+  migrantsByName = {};
   for (const d of migrants) {
-    migrantsByName[d.country_name] = Number(d["1966"] == "" ? 0: d["1966"]);
-  }
-
-  debugger;
-  for (const d of data) {
-    d.population = populationById[d.id];
+    migrantsByName[d.country_name] = d.year_data;
   }
 
   // Create an SVG group containing a path for each country.
-  svg
+  let g = svg
     .append('g')
-    .attr('class', 'countries')
+    .attr('class', 'countries'); 
+  g
     .selectAll('path')
     .data(data)
     .enter()
     .append('path')
     .attr('d', path) // path is a function that is passed a data object
-    .style('fill', d => color(d.population))
-    .on('mouseenter', pathEntered)
-    .on('mousemove', pathMoved)
-    .on('mouseout', hideTooltip);
+    .style('fill',"rgb(3,19,43)"); 
+  g
+    .selectAll('circle')
+    .data(data.filter(h => h.geometry != null))
+    .enter()
+    .append("circle")
+    .attr("r", "3")
+    .attr("transform", (d) => { 
+
+      let circleCoordinates = calculateAvgXAndY(d.geometry.coordinates);
+      
+      //return `translate(${path.projection()(d.geometry.coordinates)})`;
+      return `translate(${path.projection()(circleCoordinates)})`;
+      // return `translate(
+      //   ${d.geometry.coordinates[0][0][0]},
+      //   ${d.geometry.coordinates[0][0][1]}
+      //   )`;
+    })
+    // .attr("cx","99")
+    // .attr("cy","132")
+    .attr("fill", "yellow");
+
+
+    d3.select("#start").on("click", ()=> {
+      d3.selectAll("circle").attr("r", (listData, idx, nodes)=> {
+        debugger;
+          return Number(d3.select(nodes[idx]).attr("r")) + .05; 
+      });
+    }
+   );
+
+    //.on('mouseenter', pathEntered);
+    // .on('mousemove', pathMoved)
+    // .on('mouseout', hideTooltip);
 }
 
 // This handles when the mouse cursor
@@ -106,17 +106,20 @@ function pathEntered() {
 
 // This handles when the mouse cursor
 // moves over an SVG path that represent a country.
-function pathMoved(d) {
-  // Configure the tooltip.
-  tooltipCountry.text(d.properties.name);
-  tooltipPopulation.text(format(d.population));
-  tooltip
-    .style('left', d3.event.pageX + 'px')
-    .style('top', d3.event.pageY + 'px');
+// function pathMoved(d) {
+//   // Configure the tooltip.
+//   tooltipCountry.text(d.properties.name);
+//   let migrationCountForGivenYear = migrantsByName[d.properties.name] ?
+//   migrantsByName[d.properties.name].filter(x => x === YEAR_SELECTED)[0] : 
+//   "N/A";
+//   tooltipMigrants.text(migrationCountForGivenYear);
+//   tooltip
+//     .style('left', d3.event.pageX + 'px')
+//     .style('top', d3.event.pageY + 'px');
 
-  // Show the tooltip.
-  tooltip.style('opacity', 0.7);
-}
+//   // Show the tooltip.
+//   tooltip.style('opacity', 0.7);
+// }
 
 export function createWorldMap(svgId) {
   const svg = d3
@@ -131,7 +134,7 @@ export function createWorldMap(svgId) {
   const projection = d3
     .geoMercator()
     .scale(MAP_SCALE)
-    .translate([SVG_WIDTH / 2, SVG_HEIGHT / 1.41]);
+    .translate([SVG_WIDTH / 2.5, SVG_HEIGHT /.57]);
 
   // Create a function generate a value for the "d" attribute
   // of an SVG "path" element given polygon data.
@@ -146,4 +149,15 @@ const convertYearsToObjects = (dataSet, column_names) => {
         return { [colN] : dataSet[idx] == "" ? 0 : Number(dataSet[idx]) }
         
     })
+}
+
+function calculateAvgXAndY(setOfCoordinates){
+  let flatArr =[].concat.apply([], setOfCoordinates);
+  let allX = flatArr.map((value, idx) => {
+    return value[0]; 
+  }); 
+  let allY = flatArr.map((value, idx) => {
+    return value[1];
+  }); 
+  return [d3.median(allX), d3.median(allY)];
 }

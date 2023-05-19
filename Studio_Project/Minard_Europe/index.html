@@ -24,13 +24,29 @@
     const svg = d3.select("body").append("svg")
             .attr("width", width).attr("height", height);
 
-    const projection = d3.geoConicEquidistant()
-                         .center([32.5,57])
+            const projection = d3.geoConicEquidistant()
+                         .center([0,54])
                          .scale(25 * d3.geoStereographic().scale())
                          .translate([width/2 + 40,height/2 - 230]);
+
+    var b = geoPath.bounds(data),
+    s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+    t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+            
+    //d3.geoConicEquidistant()
+                     //  .center([0.0,52.0])
+                      // .rotate([-20.0,0.0])
+                      // .scale(5 * d3.geoStereographic().scale())
+                     //  .translate([width/2 + 40,height/2 - 230])
+                     //  .precision(0.1);
     const geoPath = d3.geoPath().projection(projection);
 
-    const armyScale = d3.scaleLinear().range([1,60]).domain([4000,422000]);
+    var b = geoPath.bounds(data),
+    s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+    t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+    const armyScale = d3.scaleLinear().range([1,20]).domain([0,690000]);
 
     const map = {};
 

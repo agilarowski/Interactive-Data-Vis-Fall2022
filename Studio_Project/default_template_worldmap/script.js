@@ -62,7 +62,7 @@ async function load(svg, path) {
   // Add the population of each country to its data object.
   const populationById = {};
   for (const d of population) {
-    populationById[d.id] = Number(d.population);
+    populationById[d.id] = Number(d.population.replace("[\"]g", ""));
   }
   for (const d of data) {
     d.population = populationById[d.id];
