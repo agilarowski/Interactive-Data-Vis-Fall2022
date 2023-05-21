@@ -1,5 +1,5 @@
 
- p {
+ /*p {
     font-weight: 400;
     font-size: 24px;
     line-height: 1.5;
@@ -34,6 +34,145 @@
     margin-right: 50px;
     margin-bottom: 50px;
  } */
+
+
+ /*.banner text{
+    font-size: 20px;
+ }
+
+ text {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 5pt;
+}
+.legend text {
+    alignment-baseline: hanging;
+}
+.domain {
+    opacity: 0;
+}
+.y-axis line, .x-axis line {
+    stroke-width: .25;
+    stroke: rgba(114, 138, 74, 0.5);
+}
+.tooltip {
+    pointer-events: none;
+}
+.tooltip rect {
+    fill: #eee;
+    fill-opacity: 0.7;
+    stroke: gray;
+    stroke-opacity: .5;
+}
+.label {
+    font-size: 9pt;
+    text-anchor: middle;
+}
+.show {
+    stroke: black;
+    stroke-width: 4;
+}
+.fade {
+    opacity: .5;
+}
+.detail {
+    opacity: 1;
+}
+
+/* chords */
+/*#chordChart {
+    display: flex;
+    justify-content: space-around;
+}
+
+#chordChart text, #migration text {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 10px;
+    text-anchor: middle;
+    alignment-baseline: middle;
+    fill: white;
+    pointer-events: none;
+}
+#chordChart .faded, #migration .faded {
+    opacity: .2;
+}
+
+#chordChart .tooltip, #migration .tooltip {
+    pointer-events: none;
+}
+#chordChart .tooltip text, #migration .tooltip text {
+    font-size: 24px;
+    font-weight: normal;
+    fill: black;
+}
+#chordChart text tspan {
+    font-size: 80%
+}
+
+
+
+#lineChart path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+#lineChart .axis path,
+#lineChart .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: left;
+ }
+
+ 
+
+ /*h1 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-left: 50px;
+    margin-right: 50px;
+ }
+
+ h2 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+ }
+
+ h3 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+ } */
+
+ p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-left: 50px;
+    margin-right: 50px;
+ }
 
 
  .banner text{
@@ -79,39 +218,50 @@
 }
 
 /* chords */
+#migration {
+    position: relative;
+}
 #chordChart {
     display: flex;
     justify-content: space-around;
 }
 
-#chordChart text {
+.mb {
+    margin-bottom: 200px;
+}
+
+#chordChart text, #migration text {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 10px;
     text-anchor: middle;
-    alignment-baseline: middle;
-    fill: white;
+    /* alignment-baseline: middle; */
+    fill: black;
     pointer-events: none;
 }
-#chordChart .faded {
+
+#chordChart .faded-bef, #chordChart .faded-after {
     opacity: .2;
 }
 
-#chordChart .faded {
+#migration .faded {
     opacity: .2;
 }
-#chordChart .tooltip {
+
+#chordChart .tooltip, #migraion .tooltip {
     pointer-events: none;
 }
-#chordChart .tooltip text {
+#chordChart .tooltip text, #migration .tooltip text{
     font-size: 24px;
     font-weight: normal;
     fill: black;
 }
-#chordChart text tspan {
+#chordChart text tspan, #migration  text tspan{
     font-size: 80%
 }
 
-
+#lineChart {
+    text-align: center;
+}
 
 #lineChart path { 
     stroke: steelblue;
