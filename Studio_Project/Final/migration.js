@@ -166,7 +166,7 @@ const nodes = [];
 const formatM = d3.format(',.2f');
 
 // Loading data
-d3.csv("EU_migration_fix_new1.csv", function (row) {
+d3.csv("EU_migration_fix_newFixed.csv", function (row) {
         nodes.push({ node: row.Destination, total: +row.Total, code: row.Code, pop: +row.Population });
 
         const line = [];
