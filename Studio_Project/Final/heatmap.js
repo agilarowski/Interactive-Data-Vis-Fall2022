@@ -14,7 +14,7 @@ function heatmap (){
 
     // Loading data
     // Population refers to those who moved out of state
-    d3.csv("migration_clean.csv", function(row) {
+    d3.csv("EU_migration_fix.csv", function(row) {
         nodes.push({node: row.Destination, total: +row.Total, code: row.Code, pop: +row.Population});
         // Pushing the data array into object
         const array = [];
@@ -36,7 +36,7 @@ function heatmap (){
         const edges = d3.merge(data);
         
         const filteredNodes  = nodes.filter(d => d.total >= 0 || d.pop >= 0)
-                                    .sort((a,b) => d3.descending(a.total, b.total)); // states with the most migration "action" should be in the top left corner
+                                    .sort((a,b) => d3.descending(a.total, b.total)); // countries with the most migration "action" should be in the top left corner
         // Edges {source, target, value}, referencing to an element in the nodes array
         const filteredEdges = edges.filter(edge => filteredNodes.find(n => n.node == edge.target))
                                    .filter(edge => filteredNodes.find(n => n.node == edge.source));
