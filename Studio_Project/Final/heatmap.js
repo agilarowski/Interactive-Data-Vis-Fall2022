@@ -14,7 +14,7 @@ function heatmap (){
 
     // Loading data
     // Population refers to those who moved out of state
-    d3.csv("EU_migration_fix.csv", function(row) {
+    d3.csv("EU_migration_fix_new.csv", function(row) {
         nodes.push({node: row.Destination, total: +row.Total, code: row.Code, pop: +row.Population});
         // Pushing the data array into object
         const array = [];
@@ -95,7 +95,7 @@ function heatmap (){
                 .style("text-anchor", 'middle')
                 .attr("transform",`rotate(-90,${[0,height/2 - margin/2]}) translate(${[0, height/2 - margin/2 - 75]})`)
                 .style("font-size", 24)
-                .text('FROM');
+                .text('TO');
 
         chart.selectAll('text.target')
                 .data(data.filter(d => d.x == 0))
@@ -111,7 +111,7 @@ function heatmap (){
                 .style("text-anchor", 'middle')
                 .attr("transform",`translate(${[width/2 - margin/2, -75]})`)
                 .style("font-size", 24)
-                .text('TO');
+                .text('FROM');
         // Adding tooltip, text showing inside the cell
         const tooltip = chart.append("g")
                 .attr("class",'tooltip')
