@@ -1,6 +1,6 @@
 let headersAfter = [];
-    const widthAfter = 800;
-    const heightAfter = 800;
+    const widthAfter = 600;
+    const heightAfter = 600;
     const marginAfter = 80;
     const svgAfter = d3.select("#chordChartAfter").append("svg").attr("width",widthAfter).attr("height",heightAfter);
     const chartAfter = svgAfter.append("g").attr("transform", `translate(${[widthAfter/2 + marginAfter/4, heightAfter/2 + marginAfter/4]})`);

@@ -1,6 +1,6 @@
 let headers = [];
-    const widthC = 800;
-    const heightC = 800;
+    const widthC = 600;
+    const heightC = 600;
     const marginC = 80;
     const svgC = d3.select("#chordChartBefore").append("svg").attr("width",widthC).attr("height",heightC);
     const chartC = svgC.append("g").attr("transform", `translate(${[widthC/2 + marginC/4, heightC/2 + marginC/4]})`);
@@ -10,8 +10,7 @@ let headers = [];
     function colorChords(index) {
         return colors[index];
     }
-    // Using gradient ribbons - see tutorial:
-    // https://www.visualcinnamon.com/2016/06/orientation-gradient-d3-chord-diagram.html
+    
 
     function gradientId(d){
         return "grad-" + d.source.index + "-" + d.target.index;
