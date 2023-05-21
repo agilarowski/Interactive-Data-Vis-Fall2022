@@ -1,80 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Line</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <style>
-        .dataset {
-            stroke-width: 3px;
-            fill: none;
-        }
-    </style>
-</head>
+<meta charset="utf-8">
+<style>
+
+body { font: 12px Arial;}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+</style>
 <body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
 <script>
-    const width  = 800;
-    const height = 400;
-    const margin = 50;
 
-    const data = d3.csv('saldo.csv').then(function(data){
-        console.log(data)
-        return {
-            year: +'year',
-            outflow: +'outflow',
+var margin = {top: 30, right: 40, bottom: 30, left: 50},
+    width = 600 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
 
+var parseDate = d3.time.format("%d-%b-%y").parse;
 
-        }
+var x = d3.time.scale().range([0, width]);
+var y0 = d3.scale.linear().range([height, 0]);
+var y1 = d3.scale.linear().range([height, 0]);
+
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
+
+var yAxisLeft = d3.svg.axis().scale(y0)
+    .orient("left").ticks(5);
+
+var yAxisRight = d3.svg.axis().scale(y1)
+    .orient("right").ticks(5); 
+
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.Year); })
+    .y(function(d) { return y0(d.Outflow); });
+    
+var valueline2 = d3.svg.line()
+    .x(function(d) { return x(d.Year); })
+    .y(function(d) { return y1(Math.floor(d.Unemployment)); });
+  
+var svg = d3.select("body")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("saldo.csv", function(error, data) {
+    data.forEach(function(d) {
+        d.Year = (d.Year);
+        d.Outflow = +d.Outflow;
+        d.Unemployment = +Math.floor(d.Unemployment);
     });
 
-    
-    /* PARSING THE YEAR */
-    const parseTime = d3.timeParse("%Y");
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.Year; }));
+    y0.domain([0, d3.max(data, function(d) {
+		return Math.max(d.Outflow); })]); 
+    y1.domain([0, d3.max(data, function(d) { 
+		return Math.max(Math.floor(d.Unemployment)); })]);
 
-    /* X AND Y SCALES */
-    const x = d3.scaleTime().range([0, width]);
-    const y = d3.scaleLinear().range([height, 0]);
+    svg.append("path")        // Add the valueline path.
+        .attr("d", valueline(data));
 
-    /* ADDING AREA */
-    const area = d3.area()
-    .x(function(d) { return x(d.Year); })
-    .y0(height)
-    .y1(function(d) { return y(d.Unemployment); });
+    svg.append("path")        // Add the valueline2 path.
+        .style("stroke", "red")
+        .attr("d", valueline2(data));
 
+    svg.append("g")            // Add the X Axis
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
-    const scaleX = d3.scaleLinear()
-            .domain(d3.extent(d3.merge(data), d => d[0]))
-            .range([margin,width - margin]);
+    svg.append("g")
+        .attr("class", "y axis")
+        .style("fill", "steelblue")
+        .call(yAxisLeft);	
 
-    const scaleY = d3.scaleLinear()
-            .domain(d3.extent(d3.merge(data), d => d[1]))
-            .range([height - margin,margin])
-            .nice();
+    svg.append("g")				
+        .attr("class", "y axis")	
+        .attr("transform", "translate(" + width + " ,0)")	
+        .style("fill", "red")		
+        .call(yAxisRight);
 
-    const colorScale = d3.scaleOrdinal(d3.schemeCategory10).domain([0,data.length]);
-
-    const line = d3.line()
-                   .x(d => scaleX(d[0]))
-                   .y(d => scaleY(d[1]));
-
-    const xAxis = d3.axisBottom(scaleX);
-    const yAxis = d3.axisLeft(scaleY);
-
-    const svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
-    const axes = svg.append("g").attr("class", "axes");
-
-    axes.append("g").call(xAxis)
-            .attr("transform", `translate(${[0, height - margin]})`);
-    axes.append("g").call(yAxis)
-            .attr("transform", `translate(${[margin, 0]})`);
-
-    svg.selectAll("path.dataset")
-        .data(data).join("path")
-        .attr("class", "dataset")
-        .attr("d", line)
-        .style("stroke", colorScale);
-
+});
 
 </script>
 </body>
-</html>
