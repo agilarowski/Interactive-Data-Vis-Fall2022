@@ -11,7 +11,7 @@ const nodes = [];
 const formatM = d3.format(',.2f');
 
 // Loading data
-d3.csv("Inter_EU_1.csv", function (row) {
+d3.csv("Inter_EU_fix.csv", function (row) {
         nodes.push({ node: row.Destination, total: +row.Total, code: row.Code, pop: +row.Population });
 
         const line = [];
