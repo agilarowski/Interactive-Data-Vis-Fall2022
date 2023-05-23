@@ -6,7 +6,7 @@ var xLine = d3.scaleLinear().range([0, widthLine]);
 var y0Line = d3.scaleLinear().range([heightLine, 0]);
 var y1Line = d3.scaleLinear().range([heightLine, 0]);
 
-var xAxisLine = d3.axisBottom(xLine).ticks(5);
+var xAxisLine = d3.axisBottom(xLine).ticks(5).tickFormat(d3.format("d"));
 var yAxisLeftLine = d3.axisLeft(y0Line).ticks(5);
 var yAxisRightLine = d3.axisRight(y1Line).ticks(5);
 
