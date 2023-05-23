@@ -1,5 +1,5 @@
 var marginLine = { top: 30, right: 40, bottom: 30, left: 50 },
-  widthLine = 800 - marginLine.left - marginLine.right,
+  widthLine = 1000 - marginLine.left - marginLine.right,
   heightLine = 600 - marginLine.top - marginLine.bottom;
 
 var xLine = d3.scaleLinear().range([0, widthLine]);
@@ -64,4 +64,5 @@ d3.csv("saldo.csv").then(function (data) {
     .attr("transform", "translate(" + widthLine + " ,0)")
     .style("fill", "red")
     .call(yAxisRightLine);
+
 });
