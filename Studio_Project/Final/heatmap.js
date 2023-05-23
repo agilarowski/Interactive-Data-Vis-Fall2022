@@ -14,7 +14,7 @@ function heatmap (){
 
     // Loading data
     // Population refers to those who moved out of state
-    d3.csv("EU_migration_fix_new1.csv", function(row) {
+    d3.csv("Inter_EU.csv", function(row) {
         nodes.push({node: row.Destination, total: +row.Total, code: row.Code, pop: +row.Population});
         // Pushing the data array into object
         const array = [];
